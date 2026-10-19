@@ -38,19 +38,19 @@
         oscillator.type = i === 0 ? 'sine' : 'triangle';
         oscillator.frequency.value = frequency;
         filter.type = 'lowpass'; filter.frequency.value = 650;
-        voiceGain.gain.value = i === 0 ? 0.14 : 0.045;
+        voiceGain.gain.value = i === 0 ? 0.30 : 0.10;
         oscillator.connect(filter); filter.connect(voiceGain); voiceGain.connect(masterGain);
         oscillator.start();
       });
       const lfo = audioContext.createOscillator();
       const lfoGain = audioContext.createGain();
-      lfo.frequency.value = 0.08; lfoGain.gain.value = 0.012;
+      lfo.frequency.value = 0.08; lfoGain.gain.value = 0.025;
       lfo.connect(lfoGain); lfoGain.connect(masterGain.gain); lfo.start();
     }
     try {
       await audioContext.resume();
       musicOn = true;
-      masterGain.gain.setTargetAtTime(0.045, audioContext.currentTime, 1.4);
+      masterGain.gain.setTargetAtTime(0.18, audioContext.currentTime, 1.4);
       soundToggle.setAttribute('aria-pressed', 'true');
       soundLabel.textContent = 'Sound on';
     } catch { showToast('Tap the sound button once more to start the music.'); }
