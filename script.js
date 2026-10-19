@@ -28,44 +28,22 @@
   }
 
   // Original gentle ambient soundscape generated in-browser; no copyrighted audio file required.
+
   async function startMusic() {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) { showToast('This browser does not support the ambient soundtrack.'); return; }
-    if (!audioContext) {
-      audioContext = new AudioCtx();
-      masterGain = audioContext.createGain();
-      masterGain.gain.value = 0.0001;
-      masterGain.connect(audioContext.destination);
-      [110, 164.81, 220, 261.63, 329.63].forEach((frequency, i) => {
-        const oscillator = audioContext.createOscillator();
-        const voiceGain = audioContext.createGain();
-        const filter = audioContext.createBiquadFilter();
-        oscillator.type = i === 0 ? 'sine' : 'triangle';
-        oscillator.frequency.value = frequency;
-        filter.type = 'lowpass'; filter.frequency.value = 650;
-        voiceGain.gain.value = i === 0 ? 0.30 : 0.10;
-        oscillator.connect(filter); filter.connect(voiceGain); voiceGain.connect(masterGain);
-        oscillator.start();
-      });
-      const lfo = audioContext.createOscillator();
-      const lfoGain = audioContext.createGain();
-      lfo.frequency.value = 0.08; lfoGain.gain.value = 0.025;
-      lfo.connect(lfoGain); lfoGain.connect(masterGain.gain); lfo.start();
-    }
     try {
-      await audioContext.resume();
+      await soundtrack.play();
       musicOn = true;
-      masterGain.gain.setTargetAtTime(0.18, audioContext.currentTime, 1.4);
-      soundToggle.setAttribute('aria-pressed', 'true');
-      soundLabel.textContent = 'Sound on';
-    } catch { showToast('Tap the sound button once more to start the music.'); }
+    } catch (error) {
+      // Autoplay may be blocked until the visitor interacts.
+      musicOn = false;
+      document.addEventListener('pointerdown', startMusic, { once: true });
+      document.addEventListener('keydown', startMusic, { once: true });
+    }
   }
-  function stopMusic() {
-    musicOn = false;
-    if (audioContext && masterGain) masterGain.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.5);
-    soundToggle.setAttribute('aria-pressed', 'false');
-    soundLabel.textContent = 'Sound off';
-  }
+
+  // Try playing as soon as the page opens.
+  startMusic();
+
   soundToggle.addEventListener('click', () => musicOn ? stopMusic() : startMusic());
 
   document.getElementById('yes-btn').addEventListener('click', () => { showScene(4); launchHearts(); });
