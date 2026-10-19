@@ -3,8 +3,13 @@
   const toast = document.getElementById('toast');
   const soundToggle = document.getElementById('sound-toggle');
   const soundLabel = document.getElementById('sound-label');
-  let audioContext = null, masterGain = null, musicOn = false, toastTimer;
 
+  let musicOn = false, toastTimer;
+  const soundtrack = new Audio('khuthi-piano.mp3');
+  soundtrack.loop = true;
+  soundtrack.preload = 'auto';
+  soundtrack.volume = 0.42;
+  
   function showScene(index) {
     scenes.forEach((scene, i) => {
       scene.hidden = i !== index;
