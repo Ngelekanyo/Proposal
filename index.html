@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12090e">
+  <meta name="description" content="A little something made just for Khuthi.">
+  <title>For Khuthi, with love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div><div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="glow glow-one" aria-hidden="true"></div><div class="glow glow-two" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="monogram" href="#" aria-label="Start again">K<span>♥</span>N</a>
+    <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false"><span class="sound-dot"></span><span id="sound-label">Sound off</span></button>
+  </header>
+  <main>
+    <section class="scene active" id="scene-0" aria-labelledby="title-0">
+      <div class="eyebrow"><span class="eyebrow-line"></span>A LITTLE SOMETHING FOR YOU<span class="eyebrow-line"></span></div>
+      <p class="overline">To my favourite person</p><h1 id="title-0">Khuthi<span class="title-comma">,</span><br><em>this is for you.</em></h1>
+      <p class="lead">Some things are too special for an ordinary message.</p>
+      <button class="primary-btn" data-next="1">Take your time <span aria-hidden="true">↗</span></button>
+      <p class="microcopy">Best experienced with sound on and a little quiet.</p><div class="scroll-mark" aria-hidden="true"><span></span></div>
+    </section>
+    <section class="scene" id="scene-1" aria-labelledby="title-1" hidden>
+      <p class="chapter">01 / WHAT I'VE BEEN THINKING</p><div class="ornament" aria-hidden="true">✳</div>
+      <h2 id="title-1">You have become<br><em>someone special</em><br>to me.</h2><div class="short-rule"></div>
+      <p class="body-copy">Somewhere between the conversations, the laughter, and the little moments, you became more than someone I was happy to hear from. You became someone I look forward to, someone I want to understand, and someone whose presence makes ordinary days feel different.</p>
+      <p class="body-copy soft-copy">And I don't want to treat something meaningful like it's just another thing that happened.</p>
+      <button class="text-btn" data-next="2">There's something else <span aria-hidden="true">→</span></button>
+    </section>
+    <section class="scene" id="scene-2" aria-labelledby="title-2" hidden>
+      <p class="chapter">02 / WHY I'M HERE</p><div class="quote-mark" aria-hidden="true">“</div>
+      <h2 id="title-2">I don't know every chapter<br>of the story ahead.</h2>
+      <p class="body-copy">But I know I want to be intentional about the one we're writing now. I want to keep showing up, learning you, laughing with you, praying with you, and making memories we can look back on with full hearts.</p>
+      <p class="body-copy soft-copy">Not because I think a label magically makes everything perfect — but because what we have matters to me, and I want to honour it.</p>
+      <button class="text-btn" data-next="3">One last thing… <span aria-hidden="true">→</span></button>
+    </section>
+    <section class="scene question-scene" id="scene-3" aria-labelledby="title-3" hidden>
+      <div class="heart-orbit" aria-hidden="true"><span>♥</span></div><p class="chapter">03 / THE QUESTION</p><p class="overline">Khuthi, my dear…</p>
+      <h2 id="title-3">Will you be<br><em>my girlfriend?</em></h2><p class="body-copy question-copy">I'd really love to make this official with you. ❤️</p>
+      <div class="answer-actions"><button class="primary-btn yes-btn" id="yes-btn" type="button">Yes, let's do this <span aria-hidden="true">♥</span></button><button class="quiet-btn" id="think-btn" type="button">I need a moment</button></div>
+      <p class="microcopy">Whatever you feel, you can be honest with me.</p>
+    </section>
+    <section class="scene ending-scene" id="scene-4" aria-labelledby="title-4" hidden>
+      <div class="celebration-heart" aria-hidden="true">♥</div><p class="chapter">A NEW LITTLE CHAPTER</p><h2 id="title-4">You just made<br><em>me very happy.</em></h2>
+      <p class="body-copy">Here's to choosing each other, being honest with each other, and building something beautiful one day at a time.</p>
+      <p class="signature">With all my heart,<br><span>Ngelekanyo</span></p><p class="microcopy">Now please come collect your real-life hug. ❤️</p>
+      <button class="text-btn" id="replay-btn" type="button">Relive this little moment ↺</button>
+    </section>
+    <section class="scene ending-scene" id="scene-5" aria-labelledby="title-5" hidden>
+      <div class="quiet-star" aria-hidden="true">✦</div><p class="chapter">NO PRESSURE, JUST HONESTY</p><h2 id="title-5">Take your time,<br><em>my dear.</em></h2>
+      <p class="body-copy">You don't have to give me an answer before you're ready. What matters to me is that we can be honest with each other. We can talk whenever you feel ready.</p>
+      <p class="signature">Always with care,<br><span>Ngelekanyo</span></p><button class="text-btn" data-next="3">I know my answer <span aria-hidden="true">→</span></button>
+    </section>
+  </main>
+  <footer><span>MADE WITH CARE</span><span class="footer-heart">♥</span><span>JUST FOR KHUTHI</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><script src="script.js"></script>
+</body>
+</html>
