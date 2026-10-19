@@ -72,12 +72,15 @@
     for (let i = 0; i < 24; i++) {
       const heart = document.createElement('span');
       heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-      heart.style.cssText = \`position:fixed;z-index:15;left:\${Math.random()*100}vw;top:105vh;color:\${i%3===0?'#f3bdca':'#e8a6b8'};font-size:\${12+Math.random()*18}px;pointer-events:none;transition:transform \${3+Math.random()*2}s linear,opacity 3s;opacity:.9;\`;
+
+      heart.style.cssText = `position:fixed;z-index:15;left:${Math.random()*100}vw;top:105vh;color:${i%3===0?'#f3bdca':'#e8a6b8'};font-size:${12+Math.random()*18}px;pointer-events:none;transition:transform ${3+Math.random()*2}s linear,opacity 3s;opacity:.9;`;
+
       document.body.appendChild(heart);
       requestAnimationFrame(() => {
-        heart.style.transform = \`translateY(-\${115+Math.random()*35}vh) rotate(\${Math.random()*140-70}deg)\`;
+        heart.style.transform = `translateY(-${115+Math.random()*35}vh) rotate(${Math.random()*140-70}deg)`;
         heart.style.opacity = '0';
       });
+
       setTimeout(() => heart.remove(), 5500);
     }
   }
